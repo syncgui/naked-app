@@ -1,2 +1,2 @@
 # naked-app
-.
+Initial commit
