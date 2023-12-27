@@ -24,6 +24,8 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation group: 'org.mongodb', name: 'mongodb-driver-sync', version: '4.11.1'
+	implementation group: 'org.mongodb', name: 'mongodb-driver-core', version: '4.11.1'
+
 
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'

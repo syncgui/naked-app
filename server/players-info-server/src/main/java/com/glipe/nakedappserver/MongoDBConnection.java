@@ -26,23 +26,28 @@ public class MongoDBConnection {
     @Value("${mongodb.connection.uri}")
     private String mongoDBuri;
 
-
-    public MongoDatabase getDatabaseConnection(String databaseName){
-
-
-//        ServerApi serverApi = ServerApi.builder()
-//                .version(ServerApiVersion.V1)
-//                .build();
-//        MongoClientSettings settings = MongoClientSettings.builder()
-//                .applyConnectionString(new ConnectionString(mongoDBuri))
-//                .serverApi(serverApi)
-//                .build();
-
-        try(MongoClient mongoClient = MongoClients.create(mongoDBuri)){
-            MongoDatabase database = mongoClient.getDatabase(databaseName);
-            return database;
+    MongoClient mongoClient;
 
 
-        }
+    public MongoDatabase getDatabaseConnection(String databaseName) {
+        mongoClient = MongoClients.create(mongoDBuri);
+        MongoDatabase database = mongoClient.getDatabase(databaseName);
+        return database;
     }
+
+    public MongoClientSettings mongoClientSettings() {
+        ServerApi serverApi = ServerApi.builder()
+                .version(ServerApiVersion.V1)
+                .build();
+        return MongoClientSettings.builder()
+                .applyConnectionString(new ConnectionString(mongoDBuri))
+                .serverApi(serverApi)
+                .build();
+    }
+
+
+    public void closeConnection() {
+        mongoClient.close();
+    }
+
 }
