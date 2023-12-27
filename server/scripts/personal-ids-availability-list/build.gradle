@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.mongodb', name: 'mongodb-driver-sync', version: '4.11.1'
+    implementation group: 'org.mongodb', name: 'mongodb-driver-core', version: '4.11.1'
+}
