@@ -1,4 +1,4 @@
-package com.glipe.nakedappserver;
+package com.glipe.nakedappserver.config;
 
 
 import com.mongodb.ConnectionString;
@@ -30,9 +30,10 @@ public class MongoDBConnection {
 
 
     public MongoDatabase getDatabaseConnection(String databaseName) {
-        mongoClient = MongoClients.create(mongoDBuri);
-        MongoDatabase database = mongoClient.getDatabase(databaseName);
-        return database;
+        try (MongoClient mongoClient = MongoClients.create(mongoDBuri)) {
+            MongoDatabase database = mongoClient.getDatabase(databaseName);
+            return database;
+        }
     }
 
     public MongoClientSettings mongoClientSettings() {
@@ -45,9 +46,5 @@ public class MongoDBConnection {
                 .build();
     }
 
-
-    public void closeConnection() {
-        mongoClient.close();
-    }
 
 }
