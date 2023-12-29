@@ -1,56 +1,43 @@
 package com.glipe.nakedappserver.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.glipe.nakedappserver.config.MongoDBConnection;
-import com.glipe.nakedappserver.config.RandomAvailableLetters;
+import com.glipe.nakedappserver.util.AvailableLetters;
 import com.glipe.nakedappserver.model.PlayerInfo;
-import com.mongodb.client.result.InsertOneResult;
+import com.glipe.nakedappserver.repository.PersonalIDRepository;
+import com.glipe.nakedappserver.repository.PlayerRepository;
 import lombok.RequiredArgsConstructor;
-import org.bson.Document;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
 
-import static com.mongodb.client.model.Filters.eq;
 
 
 @Service
 @RequiredArgsConstructor
 public class PlayerInfoService {
 
-    private final String[] availableLetters = RandomAvailableLetters.randomAvailableLetters;
+    private final PlayerRepository playerRepository;
+    private final PersonalIDRepository personalIDRepository;
+    private final String[] availableLetters = AvailableLetters.availableLetters;
 
-    private final MongoDBConnection mongoDBConnection;
-
-    private final ObjectMapper objectMapper;
-
-
-    public PlayerInfo createPlayerInfo(PlayerInfo playerInfo) throws JsonProcessingException {
+    public PlayerInfo createPlayerInfo(PlayerInfo playerInfo){
 
         String generatedID = randomPlayerID();
         playerInfo.setPlayerID(generatedID);
-
-        Document document = Document.parse(objectMapper.writeValueAsString(playerInfo));
-
-        var collection = mongoDBConnection.getDatabaseConnection("players")
-                .getCollection("player_info");
-
-        InsertOneResult insertResult = collection.insertOne(document);
-
-        if (insertResult.getInsertedId() == null) {
+        if(!playerRepository.insertPlayer(playerInfo)){
             throw new RuntimeException();
         }
+
+        changeIdAvailability(playerInfo.getPlayerID());
+
         return playerInfo;
+
     }
 
     private String randomPlayerID() {
-
         var generatedId = generateNumberLetter();
         while (!isIdAvailable(generatedId)) {
             generatedId = generateNumberLetter();
         }
-
         return generatedId;
     }
 
@@ -65,9 +52,12 @@ public class PlayerInfoService {
     }
 
     private boolean isIdAvailable(String id) {
-        var result = mongoDBConnection.getDatabaseConnection("players")
-                .getCollection("players_personal_ids")
-                .find(eq("player_id", id)).first();
-        return result.getBoolean("available");
+        return personalIDRepository.idAvailability(id);
+    }
+
+
+
+    private void changeIdAvailability(String id){
+       //TODO
     }
 }

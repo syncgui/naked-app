@@ -14,7 +14,7 @@ public class PlayerInfoResource {
     private final PlayerInfoService service;
 
     @PostMapping
-    public PlayerInfo createPlayerInformation(@RequestBody PlayerInfo dto) throws JsonProcessingException {
+    public PlayerInfo createPlayerInformation(@RequestBody PlayerInfo dto){
         return service.createPlayerInfo(dto);
     }
 }

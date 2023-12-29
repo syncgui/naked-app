@@ -2,9 +2,10 @@ package com.glipe.nakedappserver.model;
 
 
 import lombok.Data;
+import org.bson.Document;
 
 @Data
-public class PlayerInfo {
+public class PlayerInfo extends Document {
     private String playerID;
     private String name;
     private int age;
