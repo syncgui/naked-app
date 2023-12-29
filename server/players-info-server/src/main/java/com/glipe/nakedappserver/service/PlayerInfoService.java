@@ -58,6 +58,6 @@ public class PlayerInfoService {
 
 
     private void changeIdAvailability(String id){
-       //TODO
+       personalIDRepository.changeIdAvailability(id);
     }
 }
