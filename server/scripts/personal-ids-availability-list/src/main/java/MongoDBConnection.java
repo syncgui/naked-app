@@ -8,7 +8,7 @@ import com.mongodb.client.MongoDatabase;
 
 public class MongoDBConnection {
 
-    private final String mongoDBuri = "";
+    private final String mongoDBuri = "mongodb+srv://naked_app_user:c1yRrHMaVww6pnmH@cluster0.e3ixbgt.mongodb.net/?retryWrites=true&w=majority";
 
     MongoClient mongoClient;
 

@@ -21,10 +21,10 @@ public class CreatePersonalIds {
         for (String l : alphabet) {
             for (int n : numbers) {
 
-                String playerId = new StringBuilder()
+                String personalId = new StringBuilder()
                         .append(n).append(l).toString();
 
-                map.put("player_id", playerId);
+                map.put("personal_id", personalId);
                 map.put("available", true);
 
                 collection.insertOne(new Document(map));
