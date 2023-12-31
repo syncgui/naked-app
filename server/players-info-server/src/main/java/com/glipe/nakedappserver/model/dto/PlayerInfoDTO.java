@@ -9,6 +9,4 @@ public class PlayerInfoDTO {
     private int age;
     private String contactPhone;
     private Double rating = null;
-
-
 }

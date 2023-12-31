@@ -1,7 +1,7 @@
 package com.glipe.nakedappserver.service;
 
 import com.glipe.nakedappserver.model.dto.PlayerInfoDTO;
-import com.glipe.nakedappserver.model.mapper.PlayerInfoMapper;
+import com.glipe.nakedappserver.model.mapper.DocumentMapper;
 import com.glipe.nakedappserver.util.AvailableLetters;
 import com.glipe.nakedappserver.model.PlayerInfo;
 import com.glipe.nakedappserver.repository.PersonalIDRepository;
@@ -10,8 +10,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
-
-
 
 @Service
 @RequiredArgsConstructor
@@ -24,7 +22,7 @@ public class PlayerInfoService {
     public PlayerInfo createPlayerInfo(PlayerInfoDTO dto){
         String generatedID = randomPlayerID();
         dto.setPlayerID(generatedID);
-        PlayerInfo playerInfo = PlayerInfoMapper.buildDocument(dto);
+        PlayerInfo playerInfo = DocumentMapper.buildDocument(dto);
         if(!playerRepository.insertPlayer(playerInfo)){
             throw new RuntimeException();
         }
@@ -32,7 +30,6 @@ public class PlayerInfoService {
         changeIdAvailability(generatedID);
 
         return playerInfo;
-
     }
 
     private String randomPlayerID() {

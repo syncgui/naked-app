@@ -1,3 +1,3 @@
 mongodb:
   connection:
-    uri:
+    uri: mongodb+srv://naked_app_user:JqWoyRABuc74tr8j@cluster0.e3ixbgt.mongodb.net/?retryWrites=true&w=majority

@@ -13,10 +13,9 @@ public class PersonalIDRepository extends MongoRepository {
 
     private final String collection = "players_personal_ids";
 
-
-    public boolean idAvailability(String id){
+    public boolean idAvailability(String id) {
         try (MongoClient mongoClient = MongoClients.create(mongoDBuri)) {
-           var idCollection = mongoClient.getDatabase(database)
+            var idCollection = mongoClient.getDatabase(database)
                     .getCollection(collection);
 
             return idCollection
@@ -31,7 +30,7 @@ public class PersonalIDRepository extends MongoRepository {
                     .getCollection(collection);
 
             idCollection.updateOne(new Document("personal_id", id),
-                            new Document("$set", new Document("available", false)));
+                    new Document("$set", new Document("available", false)));
         }
     }
 }

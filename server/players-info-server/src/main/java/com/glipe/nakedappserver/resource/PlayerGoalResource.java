@@ -1,8 +1,8 @@
 package com.glipe.nakedappserver.resource;
 
-import com.glipe.nakedappserver.model.PlayerInfo;
-import com.glipe.nakedappserver.model.dto.PlayerInfoDTO;
-import com.glipe.nakedappserver.service.PlayerInfoService;
+import com.glipe.nakedappserver.model.PlayerGoal;
+import com.glipe.nakedappserver.model.dto.PlayerGoalDTO;
+import com.glipe.nakedappserver.service.PlayerGoalService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/info")
+@RequestMapping("/goals")
 @RequiredArgsConstructor
-public class PlayerInfoResource {
+public class PlayerGoalResource {
 
-    private final PlayerInfoService service;
+    private final PlayerGoalService service;
 
     @PostMapping
-    public PlayerInfo createPlayerInformation(@RequestBody PlayerInfoDTO dto){
-        return service.createPlayerInfo(dto);
+    public PlayerGoal createPlayerGoal(@RequestBody PlayerGoalDTO dto){
+        return service.createPlayerGoal(dto);
     }
 }
