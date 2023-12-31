@@ -20,7 +20,7 @@ public class PersonalIDRepository extends MongoRepository {
                     .getCollection(collection);
 
             return idCollection
-                    .find(eq("player_id", id))
+                    .find(eq("personal_id", id))
                     .first().getBoolean("available");
         }
     }
@@ -30,7 +30,7 @@ public class PersonalIDRepository extends MongoRepository {
             var idCollection = mongoClient.getDatabase(database)
                     .getCollection(collection);
 
-            idCollection.updateOne(new Document("player_id", id),
+            idCollection.updateOne(new Document("personal_id", id),
                             new Document("$set", new Document("available", false)));
         }
     }

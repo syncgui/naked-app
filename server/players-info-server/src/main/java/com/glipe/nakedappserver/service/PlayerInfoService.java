@@ -1,5 +1,7 @@
 package com.glipe.nakedappserver.service;
 
+import com.glipe.nakedappserver.model.dto.PlayerInfoDTO;
+import com.glipe.nakedappserver.model.mapper.PlayerInfoMapper;
 import com.glipe.nakedappserver.util.AvailableLetters;
 import com.glipe.nakedappserver.model.PlayerInfo;
 import com.glipe.nakedappserver.repository.PersonalIDRepository;
@@ -19,15 +21,15 @@ public class PlayerInfoService {
     private final PersonalIDRepository personalIDRepository;
     private final String[] availableLetters = AvailableLetters.availableLetters;
 
-    public PlayerInfo createPlayerInfo(PlayerInfo playerInfo){
-
+    public PlayerInfo createPlayerInfo(PlayerInfoDTO dto){
         String generatedID = randomPlayerID();
-        playerInfo.setPlayerID(generatedID);
+        dto.setPlayerID(generatedID);
+        PlayerInfo playerInfo = PlayerInfoMapper.buildDocument(dto);
         if(!playerRepository.insertPlayer(playerInfo)){
             throw new RuntimeException();
         }
 
-        changeIdAvailability(playerInfo.getPlayerID());
+        changeIdAvailability(generatedID);
 
         return playerInfo;
 
