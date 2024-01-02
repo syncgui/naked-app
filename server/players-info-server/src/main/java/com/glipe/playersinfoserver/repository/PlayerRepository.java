@@ -1,6 +1,6 @@
-package com.glipe.nakedappserver.repository;
+package com.glipe.playersinfoserver.repository;
 
-import com.glipe.nakedappserver.model.PlayerInfo;
+import com.glipe.playersinfoserver.model.PlayerInfo;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.result.InsertOneResult;

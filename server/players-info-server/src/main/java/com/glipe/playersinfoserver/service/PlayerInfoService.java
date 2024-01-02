@@ -1,11 +1,11 @@
-package com.glipe.nakedappserver.service;
+package com.glipe.playersinfoserver.service;
 
-import com.glipe.nakedappserver.model.dto.PlayerInfoDTO;
-import com.glipe.nakedappserver.model.mapper.DocumentMapper;
-import com.glipe.nakedappserver.util.AvailableLetters;
-import com.glipe.nakedappserver.model.PlayerInfo;
-import com.glipe.nakedappserver.repository.PersonalIDRepository;
-import com.glipe.nakedappserver.repository.PlayerRepository;
+import com.glipe.playersinfoserver.model.dto.PlayerInfoDTO;
+import com.glipe.playersinfoserver.model.mapper.DocumentMapper;
+import com.glipe.playersinfoserver.util.AvailableLetters;
+import com.glipe.playersinfoserver.model.PlayerInfo;
+import com.glipe.playersinfoserver.repository.PersonalIDRepository;
+import com.glipe.playersinfoserver.repository.PlayerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,8 +1,8 @@
-package com.glipe.nakedappserver.resource;
+package com.glipe.playersinfoserver.resource;
 
-import com.glipe.nakedappserver.model.PlayerInfo;
-import com.glipe.nakedappserver.model.dto.PlayerInfoDTO;
-import com.glipe.nakedappserver.service.PlayerInfoService;
+import com.glipe.playersinfoserver.model.PlayerInfo;
+import com.glipe.playersinfoserver.model.dto.PlayerInfoDTO;
+import com.glipe.playersinfoserver.service.PlayerInfoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/info")
+@RequestMapping("/players")
 @RequiredArgsConstructor
 public class PlayerInfoResource {
 

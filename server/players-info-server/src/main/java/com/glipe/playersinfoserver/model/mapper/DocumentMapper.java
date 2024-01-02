@@ -1,9 +1,9 @@
-package com.glipe.nakedappserver.model.mapper;
+package com.glipe.playersinfoserver.model.mapper;
 
-import com.glipe.nakedappserver.model.PlayerGoal;
-import com.glipe.nakedappserver.model.PlayerInfo;
-import com.glipe.nakedappserver.model.dto.PlayerGoalDTO;
-import com.glipe.nakedappserver.model.dto.PlayerInfoDTO;
+import com.glipe.playersinfoserver.model.PlayerGoal;
+import com.glipe.playersinfoserver.model.PlayerInfo;
+import com.glipe.playersinfoserver.model.dto.PlayerGoalDTO;
+import com.glipe.playersinfoserver.model.dto.PlayerInfoDTO;
 
 public class DocumentMapper {
      public static PlayerGoal buildDocument(PlayerGoalDTO dto) {

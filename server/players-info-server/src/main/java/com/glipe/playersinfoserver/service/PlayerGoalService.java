@@ -1,9 +1,9 @@
-package com.glipe.nakedappserver.service;
+package com.glipe.playersinfoserver.service;
 
-import com.glipe.nakedappserver.model.PlayerGoal;
-import com.glipe.nakedappserver.model.dto.PlayerGoalDTO;
-import com.glipe.nakedappserver.model.mapper.DocumentMapper;
-import com.glipe.nakedappserver.repository.PlayerGoalRepository;
+import com.glipe.playersinfoserver.model.PlayerGoal;
+import com.glipe.playersinfoserver.model.mapper.DocumentMapper;
+import com.glipe.playersinfoserver.repository.PlayerGoalRepository;
+import com.glipe.playersinfoserver.model.dto.PlayerGoalDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

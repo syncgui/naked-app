@@ -1,4 +1,4 @@
-package com.glipe.nakedappserver.model.dto;
+package com.glipe.playersinfoserver.model.dto;
 
 import lombok.Data;
 

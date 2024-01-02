@@ -1,4 +1,4 @@
-package com.glipe.nakedappserver.repository;
+package com.glipe.playersinfoserver.repository;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;

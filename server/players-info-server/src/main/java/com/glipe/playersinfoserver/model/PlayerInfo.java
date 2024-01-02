@@ -1,4 +1,4 @@
-package com.glipe.nakedappserver.model;
+package com.glipe.playersinfoserver.model;
 
 import org.bson.Document;
 

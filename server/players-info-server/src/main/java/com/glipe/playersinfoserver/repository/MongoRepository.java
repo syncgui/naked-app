@@ -1,4 +1,4 @@
-package com.glipe.nakedappserver.repository;
+package com.glipe.playersinfoserver.repository;
 
 import org.springframework.beans.factory.annotation.Value;
 

@@ -1,8 +1,8 @@
-package com.glipe.nakedappserver.resource;
+package com.glipe.playersinfoserver.resource;
 
-import com.glipe.nakedappserver.model.PlayerGoal;
-import com.glipe.nakedappserver.model.dto.PlayerGoalDTO;
-import com.glipe.nakedappserver.service.PlayerGoalService;
+import com.glipe.playersinfoserver.model.PlayerGoal;
+import com.glipe.playersinfoserver.model.dto.PlayerGoalDTO;
+import com.glipe.playersinfoserver.service.PlayerGoalService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -1,4 +1,4 @@
-package com.glipe.nakedappserver.util;
+package com.glipe.playersinfoserver.util;
 
 public final class AvailableLetters {
 
